@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-8">
+            <h2>Employee List</h2>
+        </div>
+        <div class="col-md-4 text-right">
+          <span><a class="btn btn-success" href routerLink="../add" routerLinkActive="active"><i class="fa fa-plus"></i> Add Employee</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Kode</th>
+            <th>Budget</th>
+            <!-- <th>Email</th> -->
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees.data">
+            <td>{{employee.code}}</td>
+            <td>{{employee.name}}</td>
+            <!-- <td>{{employee._id}}</td> -->
+            <td class="text-center">
+                <button (click)="deleteEmployee(employee._id)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                <button (click)="updateEmployee(employee._id)" class="btn btn-primary" style="margin-left: 10px"><i class="fa fa-edit"></i> Update</button>
+                <button (click)="employeeDetails(employee._id)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-info-circle"></i> Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
